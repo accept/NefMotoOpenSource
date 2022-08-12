@@ -1828,7 +1828,7 @@ namespace ECUFlasher
 
 				var oldPendingVariableUpdate = pendingVariableUpdates;
 
-				lock (pendingVariableUpdates)
+				lock (oldPendingVariableUpdate = pendingVariableUpdates)
 				{
 					if (pendingVariableUpdates.Any())
 					{

@@ -126,8 +126,12 @@ namespace Communication
             clonedParams.P4TesterInterByteTimeMinMs = P4TesterInterByteTimeMinMs;
             return clonedParams;
         }
-	};
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+    }
     public class KWP2000Interface : CommunicationInterface
 	{
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////

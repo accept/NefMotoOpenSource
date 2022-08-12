@@ -32,9 +32,17 @@
     </Feature>
   </Product>
 
+<?if $(var.Platform) = x64 ?>
+    <?define Win64 = "yes" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+<?else ?>
+    <?define Win64 = "no" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+<?endif ?>
+
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
-      <Directory Id="ProgramFilesFolder">
+      <Directory Id="$(var.PlatformProgramFilesFolder)">
 	<Directory Id="INSTALLFOLDER" Name="$(var.ProductName)">
 	    <Directory Id="MemoryLayoutsFolder" Name="MemoryLayouts" />
          </Directory>
@@ -47,22 +55,22 @@
 
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-      <Component Id="$(var.ProductName).exe" Guid="d2e4f421-0c73-4562-9af9-4f10dd16f278">
+      <Component Id="$(var.ProductName).exe" Guid="d2e4f421-0c73-4562-9af9-4f10dd16f278" Win64="$(var.Win64)">
 	<File Id="$(var.ProductName).exe" Name="$(var.ProductName).exe" Source="$(var.ECUFlasher_TargetDir)$(var.ProductName).exe" />
       </Component>
-      <Component Id="$(var.ProductName).exe.config" Guid="5d029180-2042-4344-b43b-e5b0809e9887">
+      <Component Id="$(var.ProductName).exe.config" Guid="5d029180-2042-4344-b43b-e5b0809e9887" Win64="$(var.Win64)">
 	<File Id="$(var.ProductName).exe.config" Name="$(var.ProductName).exe.config" Source="$(var.ECUFlasher_TargetDir)$(var.ProductName).exe.config" />
       </Component>
-      <Component Id="FTD2XX_NET.dll" Guid="21949804-55a9-4cf1-b856-ce5b72fd3f6d">
+      <Component Id="FTD2XX_NET.dll" Guid="21949804-55a9-4cf1-b856-ce5b72fd3f6d" Win64="$(var.Win64)">
 	<File Id="FTD2XX_NET.dll" Name="FTD2XX_NET.dll" Source="$(var.FTD2XX_NET_TargetDir)FTD2XX_NET.dll" />
       </Component>
-      <Component Id="Communication.dll" Guid="d4cf033c-6330-4e20-9130-f26ef46bbcc9">
+      <Component Id="Communication.dll" Guid="d4cf033c-6330-4e20-9130-f26ef46bbcc9" Win64="$(var.Win64)">
 	<File Id="Communication.dll" Name="Communication.dll" Source="$(var.Communication_TargetDir)Communication.dll" />
       </Component>
-      <Component Id="ECUShared.dll" Guid="1161e03f-3326-4297-b492-1d333630dbae">
+      <Component Id="ECUShared.dll" Guid="1161e03f-3326-4297-b492-1d333630dbae" Win64="$(var.Win64)">
 	<File Id="ECUShared.dll" Name="ECUShared.dll" Source="$(var.Shared_TargetDir)ECUShared.dll" />
       </Component>
-      <Component Id="ApplicationShared.dll" Guid="d42fabc7-0a7b-48b2-8104-3b8f85d8d525">
+      <Component Id="ApplicationShared.dll" Guid="d42fabc7-0a7b-48b2-8104-3b8f85d8d525" Win64="$(var.Win64)">
 	<File Id="ApplicationShared.dll" Name="ApplicationShared.dll" Source="$(var.ApplicationShared_TargetDir)ApplicationShared.dll" />
       </Component>
     </ComponentGroup>
