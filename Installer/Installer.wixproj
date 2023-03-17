@@ -10,16 +10,6 @@
     <OutputType>Package</OutputType>
     <Name>Installer</Name>
   </PropertyGroup>
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
-    <ProductVersion>3.10</ProductVersion>
-    <ProjectGuid>3a9ffb8d-401c-4c18-97e7-34b6e94cca88</ProjectGuid>
-    <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>NefMotoECUFlasher</OutputName>
-    <OutputType>Package</OutputType>
-    <Name>Installer</Name>
-  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
@@ -28,6 +18,16 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>{3a9ffb8d-401c-4c18-97e7-34b6e94cca88}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>NefMotoECUFlasher</OutputName>
+    <OutputType>Package</OutputType>
+    <Name>Installer</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
